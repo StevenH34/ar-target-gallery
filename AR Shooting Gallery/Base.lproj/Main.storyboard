@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="AR_Shooting_Gallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1bN-j3-czw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glA-6X-ASz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2i-dG-vbf" customClass="CustomButton" customModule="AR_Shooting_Gallery" customModuleProvider="target">
+                                <rect key="frame" x="106" y="266" width="109" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Start Game">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startGame:" destination="BV1-FR-VrT" eventType="touchUpInside" id="9zk-a6-9Me"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOj-KC-NMm" userLabel="Count Label">
+                                <rect key="frame" x="143" y="484" width="34" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySC-hI-v4b" userLabel="Score Label">
+                                <rect key="frame" x="117" y="42" width="87" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="50"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h2i-dG-vbf" firstAttribute="centerY" secondItem="1bN-j3-czw" secondAttribute="centerY" id="0H5-cB-ewE"/>
+                            <constraint firstItem="h2i-dG-vbf" firstAttribute="centerX" secondItem="1bN-j3-czw" secondAttribute="centerX" id="51F-b3-539"/>
+                            <constraint firstItem="glA-6X-ASz" firstAttribute="trailing" secondItem="JgR-wn-Fcf" secondAttribute="trailing" id="JNX-jP-BSt"/>
+                            <constraint firstItem="glA-6X-ASz" firstAttribute="leading" secondItem="JgR-wn-Fcf" secondAttribute="leading" id="Kgs-l9-bVK"/>
+                            <constraint firstItem="glA-6X-ASz" firstAttribute="top" secondItem="1bN-j3-czw" secondAttribute="top" id="NoQ-aY-29w"/>
+                            <constraint firstItem="glA-6X-ASz" firstAttribute="bottom" secondItem="JgR-wn-Fcf" secondAttribute="bottom" id="aGh-06-DPu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JgR-wn-Fcf"/>
+                    </view>
+                    <connections>
+                        <outlet property="countLabel" destination="iOj-KC-NMm" id="Vaq-fH-Qmr"/>
+                        <outlet property="sceneView" destination="glA-6X-ASz" id="sKV-eE-MyJ"/>
+                        <outlet property="scoreLabel" destination="ySC-hI-v4b" id="j0z-GN-uc5"/>
+                        <outlet property="startGameButton" destination="h2i-dG-vbf" id="5fb-Mf-C4v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1452" y="234"/>
+        </scene>
+    </scenes>
+</document>
