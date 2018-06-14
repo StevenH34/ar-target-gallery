@@ -84,13 +84,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     @objc func counter() {
         self.timerCount -= 1
         
-        if timerCount == 1 {
+        if timerCount == 0 {
             print("Game Over")
+            countLabel.isHidden = true
         }
     }
     
     // Creates a random float
-    func floatBetween(_ first: Float,  and second: Float) -> Float { // random float between upper and lower bound (inclusive)
+    func floatBetween(_ first: Float,  and second: Float) -> Float {
         return (Float(arc4random()) / Float(UInt32.max)) * (first - second) + second
     }
     
@@ -105,7 +106,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         
         targetNode.name = "Target" // Name for collision
         
-        // call a random position
+        // Call a random position
         let posX = floatBetween(-0.3, and: 0.3)
         let posY = floatBetween(-0.3, and: 0.3)
         let posZ = floatBetween(-1.0, and: -1.4)
@@ -125,7 +126,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    // #selector is part of the objective-c framework
+    // #selector is part of the objective-c
     // shoot func called inside registerGestureRecognizer()
     @objc func shoot(gestureRecognier: UIGestureRecognizer) {
         
@@ -147,7 +148,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         // Create the projectil node
         // All objects set in AR must be nodes
         let projectileNode = SCNNode(geometry: projectileSphere)
-        // Add it a name for collision detection
+        // Give it a name for collision detection
         projectileNode.name = "Projectile"
         
         // Need the physics body on the node
@@ -160,7 +161,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         projectileNode.physicsBody?.isAffectedByGravity = false
         // Orient to face the current frame
         projectileNode.simdTransform = matrix_multiply(currentFrame.camera.transform, translationMatrix)
-        // Need to make a force on the obj - might need to make it faster
+        // Need to make a force on the projectile obj - might need to make it faster
         let forceVector = SCNVector3(projectileNode.worldFront.x * 2, projectileNode.worldFront.y * 2, projectileNode.worldFront.z * 2)
         projectileNode.physicsBody?.applyForce(forceVector, asImpulse: true)
         
@@ -186,7 +187,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         
         print("Hit Target")
         self.removeNode(contact.nodeB) // Remove the bullet
-        self.userScore += 1 // Add +1 to score
+        self.userScore += 1
         
         // removes target - replaces target after 0.5 seconds - adds new target
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
